@@ -1,38 +1,328 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+}
+/* Header and Footer */
+header {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    background: rgb(160, 155, 66);
+    color: rgb(252, 247, 191);
+}
+#display-page {
+    box-sizing: border-box;
+    padding: 30px;
+    height: calc(100vh - 70px);
+    background: rgb(208, 204, 114);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer{
+    height: 20px;
+    font-size: 0.5em;
+    line-height: 2.5em;
+    background: rgb(160, 155, 66);
+    color: rgb(252, 247, 191);
+    bottom:0;
+}
+#logo {
+    width: 70%;
+    cursor: pointer;
+}
+.head-nav {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-item {
+    box-sizing: border-box;
+    height: 50px;
+    width: 35%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+.nav-item-active {
+    background: rgb(252, 247, 191);
+    color: rgb(160, 155, 66);
+    border-bottom: rgb(112, 108, 35) solid 2px;
+}
+.nav-item:hover {
+    background: rgb(252, 247, 191);
+    color: rgb(160, 155, 66);
+    border-bottom: rgb(197, 191, 76) solid 2px;
+}
+.buttons {
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* WORKOUT DISPLAY PAGE */
+
+
+.workout-display {
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 10px;
+    padding-top: 2em;
+    width: 75%;
+    height: 70%;
+    border-radius: 10px;
+    background: rgb(220, 220, 220);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.title {
+    top: 0;
+    font-weight: bold;
+    text-align:center;
+    position: absolute;
+    width: 100%;
+    background: grey;
+    border-top-right-radius:10px;
+    border-top-left-radius:10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#check-box {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    font-size: 0.8em;
+    background:white;
+    margin-left: 10px;
+}
+#check {
+    opacity:0;
+    cursor:pointer;
+}
+#check:hover {
+    opacity:1;
+}
+.title-input {
+    top:0px;
+    position: absolute;
+    height: 20px;
+    text-align: center;
+    outline: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.added-exercises {
+    width: 100%;
+    height: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+.added-exercise {
+    box-sizing: border-box;
+    border-bottom:1px solid rgba(0, 0, 0, 0.226); 
+    border-right:1px solid rgba(0, 0, 0, 0.226); 
+    width: 25%;
+    background-color: white;
+    cursor: pointer;
+}
+.added-exercise:hover {
+    background: rgba(255, 0, 0, 0.459);
+}
+.checkbox-exercise {
+    position: relative;
+    top: -4px;
+    box-sizing: border-box;
+    border-bottom:1px solid rgba(0, 0, 0, 0.226); 
+    border-left:1px solid rgba(0, 0, 0, 0.226); 
+    border-right:1px solid rgba(0, 0, 0, 0.226); 
+    width: 25%;
+    cursor: default;
+    display: flex;
+    align-items: center;
+}
+.checkbox {
+    cursor: pointer;
+    height: 100%;
+    width: 15px;
+    margin-left: 3px;
+}
+.checkbox-exercise > label {
+    padding-left: 3px;
+    width: 100%;
+    cursor: pointer;
+}
+.checkbox ~ checked:checked {
+    height: 100px;
   }
+
+.checkbox-exercise:hover {
+    background: rgb(179, 206, 28);
+}
+.create-button {
+    background: rgb(137, 196, 34);
+    color: white;
+    border:none;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
+}
+.create-button:hover {
+    background: rgb(112, 161, 28);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/*FIND EXERCISE PAGE */
+#find {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    width: 22%;
+    height: 70%;
+    border-radius: 10px;
+    background: rgb(220, 220, 220);
+    overflow-y:scroll;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+::-webkit-scrollbar {
+    width: 0px;
   }
-  to {
-    transform: rotate(360deg);
-  }
+.find-input {
+    box-sizing: border-box;
+    position: relative;
+    height: 25px;
+    width: 80%;
+    padding: 0;
+    border:none;
+    outline: none;
+    padding-left:5px;
+    border-top-left-radius: 10px;
+    float:left;
+    border-bottom:1px solid rgba(0, 0, 0, 0.226);
 }
+.add-exercise-cont {
+    position: fixed;
+    z-index: 1;
+    width: calc(22% - 13px);
+}
+.add-exercise-button {
+    display: inline-block;
+    font-weight:bold;
+    font-size:1.2em;
+    text-align:center;
+    height: 25px;
+    width:20%;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    border-top-right-radius: 10px;
+    background: rgb(137, 196, 34);
+    color: rgb(220, 220, 220);
+    border-bottom:1px solid rgba(0, 0, 0, 0.226);
+    transition:0.2s;
+    float:left;
+}
+.add-exercise-button:hover {
+    background: rgb(112, 161, 28);
+}
+.placeholder-text {
+    font-size:21px;
+}
+.exercise-text {
+    box-sizing: border-box;
+    height: 25px;
+    width: 90%;
+    background: white;
+    display: inline-block;
+    position: relative;
+    overflow:none;
+    padding:0px 5px;
+    border-bottom:1px solid rgba(0, 0, 0, 0.226);
+    float:left;
+}
+.exercise-text:hover {
+    background: rgb(137, 196, 34);
+    cursor: pointer;
+}
+.exercise-button {
+    width:10%;
+    height:25px;
+    border:none;
+    border-bottom:1px solid rgba(0, 0, 0, 0.226);
+    background: rgba(255, 0, 0, 0.459);
+    text-align: center;
+    outline:none;
+    float:left;
+    padding:0;
+    cursor:pointer;
+}
+.exercise-button:hover {
+    background: rgba(255, 0, 0);
+}
+.disappear {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    height:100%;
+    width:100%;
+    opacity:0.5;
+}
+.disappear:hover {
+    opacity:1;
+}
+
+
+/* WORKOUTS PAGE */
+#workouts {
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top:10px;
+    width: 100%;
+    height: 27%;
+    border-radius: 10px;
+    background: rgb(220, 220, 220);
+    display: flex;
+    align-items: center;
+}
+.workout {
+    text-align: center;
+    height: calc((100vh - 130px) * .23);
+    width: calc((100vh - 130px) * .23);
+    background: white;
+    border-radius:10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 15px;
+}
+.workout-title {
+    font-weight: bold;
+    width: 100%;
+    font-size: calc((100vh - 130px) * 0.026);
+    background: grey;
+    border-top-right-radius:10px;
+    border-top-left-radius:10px;
+}
+.times-completed {
+    font-size: calc((100vh - 130px) * 0.026);
+    text-decoration: underline;
+    margin-bottom: 5px;
+}
+.completed-number {
+    height: 50%;
+    width: 50%;
+    font-weight: bold;
+    font-size: calc((100vh - 130px) * 0.05);
+    border: 2px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
